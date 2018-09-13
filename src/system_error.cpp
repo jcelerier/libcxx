@@ -7,18 +7,18 @@
 //
 //===----------------------------------------------------------------------===//
 
-#include "__config"
+#include "nostd/__config"
 
-#include "system_error"
+#include "nostd/system_error"
 
 #include "include/config_elast.h"
-#include "cerrno"
-#include "cstring"
-#include "cstdio"
-#include "cstdlib"
-#include "string"
-#include "string.h"
-#include "__debug"
+#include "nostd/cerrno"
+#include "nostd/cstring"
+#include "nostd/cstdio"
+#include "nostd/cstdlib"
+#include "nostd/string"
+#include "nostd/string.h"
+#include "nostd/__debug"
 
 #if defined(__ANDROID__)
 #include <android/api-level.h>
@@ -104,7 +104,7 @@ handle_strerror_r_return(int strerror_return, char *buffer) {
   _LIBCPP_ASSERT(new_errno == ERANGE, "unexpected error from ::strerror_r");
   // FIXME maybe? 'strerror_buff_size' is likely to exceed the
   // maximum error size so ERANGE shouldn't be returned.
-  std::abort();
+  ::abort();
 }
 
 // This function handles both GNU and POSIX variants, dispatching to
@@ -118,7 +118,7 @@ string do_strerror_r(int ev) {
         ::strerror_r(ev, buffer, strerror_buff_size), buffer);
     // If we didn't get any message, print one now.
     if (!error_message[0]) {
-      std::snprintf(buffer, strerror_buff_size, "Unknown error %d", ev);
+      ::snprintf(buffer, strerror_buff_size, "Unknown error %d", ev);
       error_message = buffer;
     }
     errno = old_errno;

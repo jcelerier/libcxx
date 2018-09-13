@@ -10,7 +10,7 @@
 #ifndef _LIBCPP_CONFIG_ELAST
 #define _LIBCPP_CONFIG_ELAST
 
-#include <__config>
+#include <nostd/__config>
 
 #if defined(_LIBCPP_MSVCRT_LIKE)
 #include <stdlib.h>

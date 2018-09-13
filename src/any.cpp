@@ -9,7 +9,7 @@
 
 #include "any"
 
-namespace std {
+namespace nostd {
 const char* bad_any_cast::what() const _NOEXCEPT {
     return "bad any cast";
 }

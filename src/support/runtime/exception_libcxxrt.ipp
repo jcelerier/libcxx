@@ -12,7 +12,7 @@
 #error this header may only be used when targeting libcxxrt
 #endif
 
-namespace std {
+namespace nostd {
 
 bad_exception::~bad_exception() _NOEXCEPT
 {
@@ -38,4 +38,4 @@ bad_array_length::what() const _NOEXCEPT
     return "bad_array_length";
 }
 
-} // namespace std
+} // namespace nostd

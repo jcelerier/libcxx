@@ -12,7 +12,7 @@
 #error header can only be used when targeting libstdc++ or libsupc++
 #endif
 
-namespace std {
+namespace nostd {
 
 bad_alloc::bad_alloc() _NOEXCEPT
 {
@@ -35,4 +35,4 @@ bad_typeid::bad_typeid() _NOEXCEPT
 {
 }
 
-} // namespace std
+} // namespace nostd

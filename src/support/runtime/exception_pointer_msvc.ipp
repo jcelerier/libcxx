@@ -23,7 +23,7 @@ _LIBCPP_CRT_FUNC void __cdecl __ExceptionPtrCurrentException(void*);
 _LIBCPP_CRT_FUNC void __cdecl
 __ExceptionPtrCopyException(void*, const void*, const void*);
 
-namespace std {
+namespace nostd {
 
 exception_ptr::exception_ptr() _NOEXCEPT { __ExceptionPtrCreate(this); }
 exception_ptr::exception_ptr(nullptr_t) _NOEXCEPT { __ExceptionPtrCreate(this); }
@@ -84,4 +84,4 @@ void nested_exception::rethrow_nested() const {
   rethrow_exception(__ptr_);
 }
 
-} // namespace std
+} // namespace nostd

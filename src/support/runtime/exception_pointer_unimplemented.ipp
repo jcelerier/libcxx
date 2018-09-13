@@ -11,7 +11,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-namespace std {
+namespace nostd {
 
 exception_ptr::~exception_ptr() _NOEXCEPT
 {
@@ -77,4 +77,4 @@ void rethrow_exception(exception_ptr p)
   ::abort();
 }
 
-} // namespace std
+} // namespace nostd

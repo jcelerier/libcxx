@@ -17,7 +17,7 @@
 // stable ABI), and its rethrow_exception(std::__exception_ptr::exception_ptr)
 // function.
 
-namespace std {
+namespace nostd {
 
 namespace __exception_ptr
 {
@@ -75,4 +75,4 @@ void rethrow_exception(exception_ptr p)
     rethrow_exception(reinterpret_cast<__exception_ptr::exception_ptr&>(p));
 }
 
-} // namespace std
+} // namespace nostd

@@ -9,7 +9,7 @@
 
 #include <stdlib.h>
 
-#include "new"
+#include <nostd/new>
 #include "include/atomic_support.h"
 
 #if defined(_LIBCPP_ABI_MICROSOFT)
@@ -31,7 +31,7 @@
 # endif
 #endif
 
-namespace std
+namespace nostd
 {
 
 #ifndef __GLIBCXX__
@@ -73,12 +73,12 @@ operator new(std::size_t size) _THROW_BAD_ALLOC
     {
         // If malloc fails and there is a new_handler,
         // call it to try free up memory.
-        std::new_handler nh = std::get_new_handler();
+        nostd::new_handler nh = nostd::get_new_handler();
         if (nh)
             nh();
         else
 #ifndef _LIBCPP_NO_EXCEPTIONS
-            throw std::bad_alloc();
+            throw nostd::bad_alloc();
 #else
             break;
 #endif
@@ -88,7 +88,7 @@ operator new(std::size_t size) _THROW_BAD_ALLOC
 
 _LIBCPP_WEAK
 void*
-operator new(size_t size, const std::nothrow_t&) _NOEXCEPT
+operator new(size_t size, const nostd::nothrow_t&) _NOEXCEPT
 {
     void* p = 0;
 #ifndef _LIBCPP_NO_EXCEPTIONS
@@ -114,7 +114,7 @@ operator new[](size_t size) _THROW_BAD_ALLOC
 
 _LIBCPP_WEAK
 void*
-operator new[](size_t size, const std::nothrow_t&) _NOEXCEPT
+operator new[](size_t size, const nostd::nothrow_t&) _NOEXCEPT
 {
     void* p = 0;
 #ifndef _LIBCPP_NO_EXCEPTIONS
@@ -141,7 +141,7 @@ operator delete(void* ptr) _NOEXCEPT
 
 _LIBCPP_WEAK
 void
-operator delete(void* ptr, const std::nothrow_t&) _NOEXCEPT
+operator delete(void* ptr, const nostd::nothrow_t&) _NOEXCEPT
 {
     ::operator delete(ptr);
 }
@@ -162,7 +162,7 @@ operator delete[] (void* ptr) _NOEXCEPT
 
 _LIBCPP_WEAK
 void
-operator delete[] (void* ptr, const std::nothrow_t&) _NOEXCEPT
+operator delete[] (void* ptr, const nostd::nothrow_t&) _NOEXCEPT
 {
     ::operator delete[](ptr);
 }
@@ -178,12 +178,12 @@ operator delete[] (void* ptr, size_t) _NOEXCEPT
 
 _LIBCPP_WEAK
 void *
-operator new(std::size_t size, std::align_val_t alignment) _THROW_BAD_ALLOC
+operator new(std::size_t size, nostd::align_val_t alignment) _THROW_BAD_ALLOC
 {
     if (size == 0)
         size = 1;
     if (static_cast<size_t>(alignment) < sizeof(void*))
-      alignment = std::align_val_t(sizeof(void*));
+      alignment = nostd::align_val_t(sizeof(void*));
     void* p;
 #if defined(_LIBCPP_MSVCRT_LIKE)
     while ((p = _aligned_malloc(size, static_cast<size_t>(alignment))) == nullptr)
@@ -193,12 +193,12 @@ operator new(std::size_t size, std::align_val_t alignment) _THROW_BAD_ALLOC
     {
         // If posix_memalign fails and there is a new_handler,
         // call it to try free up memory.
-        std::new_handler nh = std::get_new_handler();
+        nostd::new_handler nh = nostd::get_new_handler();
         if (nh)
             nh();
         else {
 #ifndef _LIBCPP_NO_EXCEPTIONS
-            throw std::bad_alloc();
+            throw nostd::bad_alloc();
 #else
             p = nullptr; // posix_memalign doesn't initialize 'p' on failure
             break;
@@ -210,7 +210,7 @@ operator new(std::size_t size, std::align_val_t alignment) _THROW_BAD_ALLOC
 
 _LIBCPP_WEAK
 void*
-operator new(size_t size, std::align_val_t alignment, const std::nothrow_t&) _NOEXCEPT
+operator new(size_t size, nostd::align_val_t alignment, const nostd::nothrow_t&) _NOEXCEPT
 {
     void* p = 0;
 #ifndef _LIBCPP_NO_EXCEPTIONS
@@ -229,14 +229,14 @@ operator new(size_t size, std::align_val_t alignment, const std::nothrow_t&) _NO
 
 _LIBCPP_WEAK
 void*
-operator new[](size_t size, std::align_val_t alignment) _THROW_BAD_ALLOC
+operator new[](size_t size, nostd::align_val_t alignment) _THROW_BAD_ALLOC
 {
     return ::operator new(size, alignment);
 }
 
 _LIBCPP_WEAK
 void*
-operator new[](size_t size, std::align_val_t alignment, const std::nothrow_t&) _NOEXCEPT
+operator new[](size_t size, nostd::align_val_t alignment, const nostd::nothrow_t&) _NOEXCEPT
 {
     void* p = 0;
 #ifndef _LIBCPP_NO_EXCEPTIONS
@@ -255,7 +255,7 @@ operator new[](size_t size, std::align_val_t alignment, const std::nothrow_t&) _
 
 _LIBCPP_WEAK
 void
-operator delete(void* ptr, std::align_val_t) _NOEXCEPT
+operator delete(void* ptr, nostd::align_val_t) _NOEXCEPT
 {
     if (ptr)
 #if defined(_LIBCPP_MSVCRT_LIKE)
@@ -267,35 +267,35 @@ operator delete(void* ptr, std::align_val_t) _NOEXCEPT
 
 _LIBCPP_WEAK
 void
-operator delete(void* ptr, std::align_val_t alignment, const std::nothrow_t&) _NOEXCEPT
+operator delete(void* ptr, nostd::align_val_t alignment, const nostd::nothrow_t&) _NOEXCEPT
 {
     ::operator delete(ptr, alignment);
 }
 
 _LIBCPP_WEAK
 void
-operator delete(void* ptr, size_t, std::align_val_t alignment) _NOEXCEPT
+operator delete(void* ptr, size_t, nostd::align_val_t alignment) _NOEXCEPT
 {
     ::operator delete(ptr, alignment);
 }
 
 _LIBCPP_WEAK
 void
-operator delete[] (void* ptr, std::align_val_t alignment) _NOEXCEPT
+operator delete[] (void* ptr, nostd::align_val_t alignment) _NOEXCEPT
 {
     ::operator delete(ptr, alignment);
 }
 
 _LIBCPP_WEAK
 void
-operator delete[] (void* ptr, std::align_val_t alignment, const std::nothrow_t&) _NOEXCEPT
+operator delete[] (void* ptr, nostd::align_val_t alignment, const nostd::nothrow_t&) _NOEXCEPT
 {
     ::operator delete[](ptr, alignment);
 }
 
 _LIBCPP_WEAK
 void
-operator delete[] (void* ptr, size_t, std::align_val_t alignment) _NOEXCEPT
+operator delete[] (void* ptr, size_t, nostd::align_val_t alignment) _NOEXCEPT
 {
     ::operator delete[](ptr, alignment);
 }

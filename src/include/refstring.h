@@ -10,10 +10,10 @@
 #ifndef _LIBCPP_REFSTRING_H
 #define _LIBCPP_REFSTRING_H
 
-#include <__config>
-#include <stdexcept>
-#include <cstddef>
-#include <cstring>
+#include <nostd/__config>
+#include <nostd/stdexcept>
+#include <nostd/cstddef>
+#include <nostd/cstring>
 #ifdef __APPLE__
 #include <dlfcn.h>
 #include <mach-o/dyld.h>
@@ -75,7 +75,7 @@ __libcpp_refstring::__libcpp_refstring(const char* msg) {
     rep->cap = len;
     rep->count = 0;
     char *data = data_from_rep(rep);
-    std::memcpy(data, msg, len + 1);
+    ::memcpy(data, msg, len + 1);
     __imp_ = data;
 }
 

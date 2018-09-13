@@ -7,22 +7,22 @@
 //
 //===----------------------------------------------------------------------===//
 
-#include "__config"
+#include <nostd/__config>
 
-#include "ios"
+#include <nostd/ios>
 
 #include <stdlib.h>
 
-#include "__locale"
-#include "algorithm"
+#include <nostd/__locale>
+#include <nostd/algorithm>
 #include "include/config_elast.h"
-#include "istream"
-#include "limits"
-#include "memory"
-#include "new"
-#include "streambuf"
-#include "string"
-#include "__undef_macros"
+#include <nostd/istream>
+#include <nostd/limits>
+#include <nostd/memory>
+#include <nostd/new>
+#include <nostd/streambuf>
+#include <nostd/string>
+#include <nostd/__undef_macros>
 
 _LIBCPP_BEGIN_NAMESPACE_STD
 
@@ -162,7 +162,7 @@ int ios_base::__xindex_ = 0;
 template <typename _Tp>
 static size_t __ios_new_cap(size_t __req_size, size_t __current_cap)
 { // Precondition: __req_size > __current_cap
-	const size_t mx = std::numeric_limits<size_t>::max() / sizeof(_Tp);
+	const size_t mx = nostd::numeric_limits<size_t>::max() / sizeof(_Tp);
 	if (__req_size < mx/2)
 		return _VSTD::max(2 * __current_cap, __req_size);
 	else

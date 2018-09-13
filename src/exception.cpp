@@ -7,9 +7,9 @@
 //
 //===----------------------------------------------------------------------===//
 
-#include "exception"
-#include "new"
-#include "typeinfo"
+#include <nostd/exception>
+#include <nostd/new>
+#include <typeinfo>
 
 #if defined(LIBCXXRT) || defined(LIBCXX_BUILDING_LIBCXXABI) || \
   (defined(__APPLE__) && !defined(_LIBCPP_BUILDING_HAS_NO_ABI_LIBRARY))

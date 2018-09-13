@@ -7,10 +7,10 @@
 //
 //===----------------------------------------------------------------------===//
 
-#include "memory"
+#include <nostd/memory>
 #ifndef _LIBCPP_HAS_NO_THREADS
-#include "mutex"
-#include "thread"
+#include <nostd/mutex>
+#include <nostd/thread>
 #endif
 #include "include/atomic_support.h"
 

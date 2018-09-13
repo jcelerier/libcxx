@@ -12,7 +12,7 @@
 #error this header may only be used with libc++abi or libcxxrt
 #endif
 
-namespace std {
+namespace nostd {
 
 exception_ptr::~exception_ptr() _NOEXCEPT {
   __cxa_decrement_exception_refcount(__ptr_);
@@ -71,4 +71,4 @@ void rethrow_exception(exception_ptr p)
     terminate();
 }
 
-} // namespace std
+} // namespace nostd

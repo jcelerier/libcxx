@@ -8,12 +8,13 @@
 //
 //===----------------------------------------------------------------------===//
 
-#include <cstdio>
+#include <nostd/cstdio>
 
-namespace std {
+namespace nostd {
 
-_LIBCPP_SAFE_STATIC static std::terminate_handler  __terminate_handler;
-_LIBCPP_SAFE_STATIC static std::unexpected_handler __unexpected_handler;
+_LIBCPP_SAFE_STATIC static nostd::terminate_handler  __terminate_handler;
+/*
+_LIBCPP_SAFE_STATIC static nostd::unexpected_handler __unexpected_handler;
 
 
 // libcxxrt provides implementations of these functions itself.
@@ -29,14 +30,14 @@ get_unexpected() _NOEXCEPT
   return __libcpp_atomic_load(&__unexpected_handler);
 
 }
-
+* 
 _LIBCPP_NORETURN
 void unexpected()
 {
     (*get_unexpected())();
     // unexpected handler should not return
     terminate();
-}
+}*/
 
 terminate_handler
 set_terminate(terminate_handler func) _NOEXCEPT
@@ -178,4 +179,4 @@ bad_typeid::what() const _NOEXCEPT
   return "std::bad_typeid";
 }
 
-} // namespace std
+} // namespace nostd

@@ -7,10 +7,10 @@
 //
 //===----------------------------------------------------------------------===//
 
-#include "__config"
+#include <nostd/__config>
 #ifndef _LIBCPP_HAS_NO_THREADS
 
-#include "shared_mutex"
+#include <nostd/shared_mutex>
 
 _LIBCPP_BEGIN_NAMESPACE_STD
 

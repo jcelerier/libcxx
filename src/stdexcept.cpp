@@ -7,10 +7,10 @@
 //
 //===----------------------------------------------------------------------===//
 
-#include "stdexcept"
-#include "new"
-#include "string"
-#include "system_error"
+#include <nostd/stdexcept>
+#include <nostd/new>
+#include <nostd/string>
+#include <nostd/system_error>
 #include "include/refstring.h"
 
 /* For _LIBCPPABI_VERSION */
@@ -19,10 +19,10 @@
 #include <cxxabi.h>
 #endif
 
-static_assert(sizeof(std::__libcpp_refstring) == sizeof(const char *), "");
+static_assert(sizeof(nostd::__libcpp_refstring) == sizeof(const char *), "");
 
 
-namespace std  // purposefully not using versioning namespace
+namespace nostd  // purposefully not using versioning namespace
 {
 
 logic_error::logic_error(const string& msg) : __imp_(msg.c_str())

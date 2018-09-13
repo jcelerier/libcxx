@@ -29,7 +29,7 @@ unexpected_handler __cdecl _get_unexpected();
 int __cdecl __uncaught_exceptions();
 }
 
-namespace std {
+namespace nostd {
 
 unexpected_handler
 set_unexpected(unexpected_handler func) _NOEXCEPT {
@@ -175,4 +175,4 @@ bad_array_new_length::what() const _NOEXCEPT
 }
 #endif // _LIBCPP_NO_VCRUNTIME
 
-} // namespace std
+} // namespace nostd

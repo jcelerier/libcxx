@@ -1,0 +1,8 @@
+all:
+	clang++ -std=c++1z \
+		-I . -I nostd-shim -nostdinc -nostdlibinc \
+		-I/usr/lib/clang/6.0.1/include -I/usr/include \
+		-D_LIBCPP_BUILDING_LIBRARY -D_LIBCPP_NO_RTTI \
+		src/exception.cpp src/stdexcept.cpp src/new.cpp src/vector.cpp src/algorithm.cpp src/iostream.cpp src/charconv.cpp src/locale.cpp src/string.cpp src/ios.cpp src/system_error.cpp src/memory.cpp src/future.cpp src/mutex.cpp src/thread.cpp src/condition_variable.cpp \
+		test/test-nostd.cpp \
+		-pthread

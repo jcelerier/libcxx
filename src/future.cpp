@@ -7,12 +7,12 @@
 //
 //===----------------------------------------------------------------------===//
 
-#include "__config"
+#include <nostd/__config>
 
 #ifndef _LIBCPP_HAS_NO_THREADS
 
-#include "future"
-#include "string"
+#include <nostd/future>
+#include <nostd/string>
 
 _LIBCPP_BEGIN_NAMESPACE_STD
 

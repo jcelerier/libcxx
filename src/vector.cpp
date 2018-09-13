@@ -7,7 +7,7 @@
 //
 //===----------------------------------------------------------------------===//
 
-#include "vector"
+#include <nostd/vector>
 
 _LIBCPP_BEGIN_NAMESPACE_STD
 

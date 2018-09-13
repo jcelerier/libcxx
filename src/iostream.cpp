@@ -7,9 +7,9 @@
 //
 //===----------------------------------------------------------------------===//
 
-#include "__std_stream"
-#include "string"
-#include "new"
+#include <nostd/__std_stream>
+#include <nostd/string>
+#include <nostd/new>
 
 #define _str(s) #s
 #define str(s) _str(s)

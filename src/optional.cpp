@@ -9,7 +9,7 @@
 
 #include "optional"
 
-namespace std
+namespace nostd
 {
 
 bad_optional_access::~bad_optional_access() _NOEXCEPT = default;

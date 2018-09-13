@@ -12,7 +12,7 @@
 #error this header can only be used with libc++abi
 #endif
 
-namespace std {
+namespace nostd {
 
 bool uncaught_exception() _NOEXCEPT { return uncaught_exceptions() > 0; }
 
@@ -25,4 +25,4 @@ int uncaught_exceptions() _NOEXCEPT
 # endif
 }
 
-} // namespace std
+} // namespace nostd
